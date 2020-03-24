@@ -1,0 +1,28 @@
+/* pages/editcar/editcar.wxss */
+.editinfo{
+  padding: 6px 6px;
+font-size: 20px;
+
+}
+
+.car-info{
+  height: 40px;
+line-height: 40px;
+border-bottom: 1px solid #e6e5e2;
+display: flex;
+}
+
+.input{
+ float: right;
+margin: 10px 10px;
+}
+
+.car-type span{
+  margin: 0 10px;
+}
+
+.comfirm{
+  margin: 10px;
+    border: 1px solid #38362e4b;
+  background-color: #e6e5e2;
+}

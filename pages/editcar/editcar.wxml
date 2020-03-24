@@ -1,0 +1,27 @@
+<!--pages/editcar/editcar.wxml-->
+<view class="editinfo">
+<form bindsubmit="formSubmit">
+ <view class="car-info">
+    <span class="">项目：</span>
+    <input class="input" name="projectName"  placeholder="请输入项目" value="{{projectName}}"></input>
+  </view>
+  <view class="car-info">
+    <span class="">VIN：</span>
+    <input class="input" name="carvin" placeholder="请输入VIN号" value="{{vin}}"></input>
+  </view>
+    <view class="car-info">
+    <span class="">借用人:</span>
+    <input class="input" name="borrower" placeholder="请输入借用人" value="{{borrower}}"></input>
+  </view>
+  <view class="car-info">
+    <span class="">配置:</span>
+    <input class="input" name="configuration" placeholder="请输入配置" value="{{configuration}}"></input>
+  </view>
+   <view class="car-info">
+    <span class="">状态:</span>
+    <input class="input" name="state" placeholder="请输入状态" value="{{state}}"></input>
+  </view>
+  <button class="comfirm" type="primary" form-type="submit">确认</button>
+</form>
+</view>
+

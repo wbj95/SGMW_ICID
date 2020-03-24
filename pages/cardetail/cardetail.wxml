@@ -1,0 +1,98 @@
+<!--pages/cardetail/cardetail.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class="layout">
+  <!-- 车辆项目和VIN号 -->
+  <view class="cardetail">
+    <view class="car-text-vin">
+      <view>
+        <text class="title">
+   VIN 
+   </text>
+        <text class="content">
+   <!-- 通过自定义的module名称tools引用sub截取方法 -->
+{{tools.sub(vin)}}
+   </text>
+      </view>
+    </view>
+    <!-- 项目 -->
+    <view class="car-text-vin">
+      <text class="title">
+项目
+</text>
+      <text>
+{{projectName}}
+</text>
+    </view>
+    <!-- 配置 -->
+    <view class="car-text-vin">
+      <text class="title">
+配置
+</text>
+      <text>
+{{configuration}}
+</text>
+    </view>
+    <!-- 状态 -->
+    <view class="car-text-vin">
+      <text class="title">
+状态
+</text>
+      <text>
+{{state}}
+</text>
+    </view>
+    <!-- 位置 -->
+    <view class="car-text-vin">
+      <text class="title">
+位置
+</text>
+      <text>
+N/A
+</text>
+    </view>
+    <!-- 负责人 -->
+    <view class="car-text-vin">
+      <text class="title">
+负责人
+</text>
+      <text>
+{{borrower}}
+</text>
+    </view>
+  </view>
+</view>
+
+<view class="cardata">
+  <view class="car-info">
+    <span class="">当前位置：</span>
+    <view>
+      <!-- {{carData.longitude}} ，{{carData.latitude}}-->N/A
+    </view>
+  </view>
+  <view class="car-info">
+    <span class="">剩余电量：</span>
+    <view>{{batSoc}}%
+      <!-- {{carData.batElectric}} -->
+    </view>
+  </view>
+  <!-- 本周里程 -->
+<view class="car-info">
+    <span class="">本周里程：</span>
+    <view>
+   {{dataMileage}}km
+    </view>
+  </view>
+  <!-- 本周启动次数 -->
+<view class="car-info">
+    <span class="">本周启动次数：</span>
+    <view>
+  
+    </view>
+  </view>
+</view>
+<view class="editcar">
+  <button class="edit" bindtap="editcar" data-projectName="{{projectName}}" data-vin="{{vin}}" data-borrower="{{borrower}}" data-configuration="{{configuration}}" data-="{{state}}">编辑车辆</button>
+</view>
+<view>
+<button class="delete" bindtap="deletecar" data-carid="{{id}}">删除车辆</button>
+</view>

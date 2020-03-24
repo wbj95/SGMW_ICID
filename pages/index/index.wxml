@@ -1,0 +1,73 @@
+<!-- 引入wxs脚本 -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<!-- 增加车辆 -->
+<view class="top-navigation">
+  <navigator url="../addcar/addcar" class="">
+    <image src="/images/add.png" class="add-image"></image>
+  </navigator>
+</view>
+<!-- 车辆列表 -->
+
+
+<!-- 通过循环嵌套展示 -->
+<navigator url="../cardetail/cardetail?vin={{item.vin}}&projectName={{item.projectName}}&borrower={{item.borrower}}&id={{item.ID}}&configuration={{item.configuration}}&state={{item.state}}" wx:for="{{carInfoList}}" wx:key="*this" class="carlist one-car">
+  <!-- <image class="car-images" src="/images/E300carblue.png"></image> -->
+  <view class="car-content">
+    <view class="car-text-vin">
+      <view>
+        <text class="title">
+   VIN 
+   </text>
+        <text class="content">
+   <!-- 通过自定义的module名称tools引用sub截取方法 -->
+{{tools.sub(item.vin)}}
+   </text>
+      </view>
+    </view>
+    <!-- 项目 -->
+     <view class="car-text-vin">
+      <text class="title">
+项目
+</text>
+      <text>
+{{item.projectName}}
+</text>
+    </view>
+    <!-- 配置 -->
+    <view class="car-text-vin">
+      <text class="title">
+配置
+</text>
+      <text>
+{{item.configuration}}
+</text>
+    </view>
+<!-- 状态 -->
+ <view class="car-text-vin">
+      <text class="title">
+状态
+</text>
+      <text>
+{{item.state}}
+</text>
+    </view>
+    <!-- 位置 -->
+     <view class="car-text-vin">
+      <text class="title">
+位置
+</text>
+      <text>
+N/A
+</text>
+    </view>
+    <!-- 负责人 -->
+     <view class="car-text-vin">
+      <text class="title">
+负责人
+</text>
+      <text>
+{{item.borrower}}
+</text>
+    </view>
+  </view>
+</navigator>

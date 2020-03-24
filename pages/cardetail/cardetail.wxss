@@ -1,0 +1,72 @@
+/* pages/cardetail/cardetail.wxss */
+.cardetail{
+height: 210rpx;
+width: 100%;
+margin: 10px 15px 15px 15px;
+display: flex;
+border-bottom: 1px solid #e6e5e2;
+}
+
+.car-image{
+  width: 250rpx;
+height: 200rpx;
+}
+
+.car-text{
+padding: 30rpx;
+height: 50rpx;
+width: 500rpx;
+color: #FF0000;
+font-size: 50rpx;
+}
+
+.car-vin{
+padding: 30rpx;
+height: 50rpx;
+width: 500rpx;
+}
+
+.car-text-vin{
+  display: flex;
+  flex-direction:column;
+  margin-left: 30rpx;
+}
+
+.cardata{
+  height: 140px;
+width: 100%;
+margin: 10px 15px 15px 15px;
+border-bottom: 1px solid #e6e5e2;
+background-color: #e6e5e2;
+}
+
+.car-info{
+height: 30px;
+line-height: 40px;
+display: flex;
+}
+
+.buttonlist{
+  display: flex;
+  height: 50px;
+  width: 100%;
+  margin: 10px;
+}
+.edit{
+  color:blue;
+    border: 1px solid #38362e4b;
+  background-color: #e6e5e2;
+  margin: 0,10px,10px,10px;
+}
+.delete{
+  color: red;
+  border: 1px solid #38362e4b;
+  background-color: #e6e5e2;
+  margin: 0,10px,10px,10px;
+}
+.editcar{
+  margin-bottom: 10px;
+}
+.title{
+  color:  rgb(67, 96, 194);
+}
