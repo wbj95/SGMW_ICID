@@ -2,15 +2,66 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/addcar/addcar",
     "pages/cardetail/cardetail",
-    "pages/editcar/editcar"
+    "pages/server/server",
+    "pages/statistics/statistics",
+    "pages/borrowCar/borrowCar",
+    "pages/oneWeekTrip/oneWeekTrip",
+    "pages/customer_server/customer_server",
+    "pages/fileList/fileList",
+    "pages/bookRegister/bookRegister",
+    "pages/bookRegister/borroweBook/borroweBook",
+    "pages/bookRegister/returnBook/returnBook",
+    "pages/assetManagement/assetManagement"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "智联交互小程序",
+    "navigationBarTitleText": "智联交互小助手",
     "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "color": "#222222",
+    "selectedColor": "#459ae9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home_car.png",
+        "selectedIconPath": "images/select_car.png",
+        "text": "车辆状态"
+      },
+      {
+        "pagePath": "pages/server/server",
+        "iconPath": "images/server.png",
+        "selectedIconPath": "images/select_server.png",
+        "text": "服务"
+      },
+      {
+        "pagePath": "pages/customer_server/customer_server",
+        "iconPath": "images/customerServer.png",
+        "selectedIconPath": "images/customerServer_select.png",
+        "text": "知识库"
+      },
+      {
+        "pagePath": "pages/fileList/fileList",
+        "iconPath": "images/file.png",
+        "selectedIconPath": "images/file_select.png",
+        "text": "知识文件"
+      }
+    ]
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.3",
+      "provider": "wx069ba97219f66d99"
+    }
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,34 @@
+<view class="startPre">
+<canvas class="canvas" canvas-id="ringGraph"></canvas>
+<text>{{startPre}}</text>
+
+</view>
+
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">vin</view>
+    <!-- <button class="th1" bindtap='but_dataStart'>本周启动次数</button> -->
+    <view class="th1" bindtap="choosesort1">本周启动次数</view>
+    <image wx:if='{{imageurl1}}' class="image" src="{{imageurl1}}"></image>
+    <!-- <button class="th1" bindtap='but_datamileage'>本周行驶里程</button> -->
+    <view class="th1" bindtap="choosesort2">本周行驶里程</view>
+    <image wx:if='{{imageurl2}}' class="image" src="{{imageurl2}}"></image>
+  </view>
+    
+  <block wx:for="{{listData}}" wx:key="*this">
+ <navigator url="../cardetail/cardetail?vin={{item.vin}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td1">{{item.vin}}</view>
+      <view class="td">{{item.dataStart}}</view>
+      <view class="td">{{item.datamileage}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td1">{{item.vin}}</view>
+      <view class="td">{{item.dataStart}}</view>
+      <view class="td">{{item.datamileage}}</view>
+    </view>
+   </navigator>
+  </block>
+
+</view>

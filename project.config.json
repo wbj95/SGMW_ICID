@@ -74,6 +74,76 @@
 					"id": -1,
 					"name": "pages/editcar/editcar",
 					"pathName": "pages/editcar/editcar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/server/server",
+					"pathName": "pages/server/server",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/statistics/statistics",
+					"pathName": "pages/statistics/statistics",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/statistics/statistics",
+					"pathName": "pages/statistics/statistics",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/borrowCar/borrowCar",
+					"pathName": "pages/borrowCar/borrowCar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newbaojun/map/map",
+					"pathName": "pages/newbaojun/map/map",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bookRegister/bookRegister",
+					"pathName": "pages/bookRegister/bookRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bookRegister/bookRegister",
+					"pathName": "pages/bookRegister/bookRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bookRegister/bookRegister",
+					"pathName": "pages/bookRegister/bookRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bookRegister/bookRegister",
+					"pathName": "pages/bookRegister/bookRegister",
 					"scene": null
 				}
 			]

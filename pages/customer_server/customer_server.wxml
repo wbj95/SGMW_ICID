@@ -1,0 +1,61 @@
+<!--pages/customer_server/customer_server.wxml-->
+<scroll-view scroll-y="true" style="height : 500px;" scroll-top="{{scrollTop}}">
+<block wx:for="{{msglist}}" wx:key="key">
+  <view class="send" wx:if="{{item.type==0}}">
+    <text class="send_text">{{item.msg}}</text>
+    <image class="photo" src="/images/people.png"></image>
+  </view>
+
+  <view class="reply" wx:if="{{item.type==1}}">
+    <image class="photo" mode="aspectFill" src="/images/robot_2.jpg"></image>
+    <text class="replay_text">{{item.msg}}</text>
+  </view>
+ <view class="reply" wx:if="{{item.type==2}}">
+    <image class="photo" mode="aspectFill" src="/images/robot_2.jpg"></image>
+    <view class="replay_text">
+      <text class="replay_top">{{item.msg4}}</text>
+     <!-- <navigator wx:for="{{item.msg}}"  url="{{it.url}}" wx:key="key" wx:for-item="it">
+   
+     <text class="replay_con">{{index+1}}.{{it.fileName}}</text></navigator> -->
+
+     <view wx:for="{{item.msg}}" bindtap="XmLonlinePreview" wx:key="key" wx:for-item="it" data-name="{{it.url}}">
+   
+     <text class="replay_con">{{index+1}}.{{it.fileName}}</text></view>
+    </view>
+    
+  </view>
+
+</block>
+</scroll-view>   
+
+
+   <view class="page-section">
+      <view wx:if="{{dialogtype==0}}" class="weui-cells__title" selectable="true">知识库模式：{{inputValue}}
+      </view>
+       <view wx:if="{{dialogtype==1}}" class="weui-cells__title" selectable="true">聊天模式：{{inputValue}}
+      </view>
+      <view class="weui-cells weui-cells_after-title" >
+        <view class="weui-cell weui-cell_input" wx:if="{{sendId==0}}">
+        <!-- <switch  checked bindchange="switchChange" color="#ea9999" /> -->
+        <image id="{{sendId}}" class="exchangeImage" src="{{sendStyle}}" bindtap='exchangeSend'></image>
+     
+             <input class="weui-input" id='search-input' disabled='{{isDisableInput}}' placeholder-style="color:#666666"  style="width:200px;"  placeholder="请输入查询语句" confirm-type ="send" bindconfirm="bindConfirmControl" bindinput="acquire_input" value="{{searchinput}}"/>
+          <button class="mini-btn" type="primary" size="mini" style="background:#d0e0e3;color:#000000 " bindtap="BeginSearch">发送</button>
+
+     
+        </view>
+ <view class="weui-cell weui-cell_input" wx:if="{{sendId==1}}">
+        <!-- <switch  checked bindchange="switchChange" color="#ea9999" /> -->
+        <image id="{{sendId}}" class="exchangeImage" src="{{sendStyle}}" bindtap='exchangeSend'></image>
+        <view class="voice_text"  catchtouchstart="streamRecord"  catchtouchend="endStreamRecord"> 按住说话 </view>
+        </view>
+      </view>
+    </view>
+<!-- <form bindsubmit="send">
+  <view class="sendMsg">
+      <textarea name="msg" class="inputMsg"  placeholder="可以咨询我哟"/>　　　
+      <button form-type='submit' class="sendBtn">发送</button>
+  </view>
+</form> -->
+
+

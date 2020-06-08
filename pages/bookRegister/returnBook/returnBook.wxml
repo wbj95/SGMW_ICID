@@ -1,0 +1,23 @@
+<!--pages/bookRegister/returnBook/returnBook.wxml-->
+<text wx:if="{{ isScanRes == '0'}}">{{res}}</text>
+<view class="addinfo" wx:else>
+<form bindsubmit="formSubmit">
+ <view class="car-info">
+    <span class="">编号：</span>
+    <!-- <input class="input" name="Name" placeholder="请输借车人的姓名"></input> -->
+    <text>{{bookId}}</text>
+  </view>
+  <view class="car-info">
+    <span class="">书名：</span>
+    <!-- <input class="input" name="phoneNum" placeholder="请输入借车人的手机号" ></input> -->
+     <text>{{bookName}}</text>
+  </view>
+  <view class="car-info">
+    <span class="">姓名:</span>
+    <input class="input" name="borrowerName" placeholder="请输入姓名" value="{{borrowerName}}"></input>
+  </view>
+  <view class="comfirm-button">
+    <button class="comfirm" type="primary" form-type="submit">确认还书？</button>
+  </view>
+</form>
+</view>

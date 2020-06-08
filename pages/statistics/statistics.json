@@ -1,0 +1,23 @@
+{
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#459ae9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/statistics/statistics",
+        "iconPath": "../images/mileage.png",
+        "selectedIconPath": "../images/mileage_select.png",
+        "text": "周里程排行"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "iconPath": "../images/start.png",
+        "selectedIconPath": "../images/start_select.png",
+        "text": "周启动次数"
+      }
+    ]
+  }
+}

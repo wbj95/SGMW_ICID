@@ -1,0 +1,50 @@
+ <!--pages/server/server.wxml-->
+<view class="all">
+<view class="line">
+<view class="borrow">
+  <!-- <navigator url='' class="click"> -->
+  <view class="logo">
+     <image bindtap='getScancode' src='../../images/borrow_car.png' ></image>
+  <text>借车扫码</text>
+  </view>
+
+   <!-- </navigator> -->
+</view>
+
+<view class="statistics">
+<view class="logo">
+<navigator url='../statistics/statistics'  class="click" >
+   <image src='../../images/statistics.png' ></image>
+   <text>统计</text>
+</navigator>
+</view>
+</view>
+<view class="statistics">
+<view class="logo">
+<navigator url='../bookRegister/bookRegister'  class="bookclick" >
+   <image src='../../images/book.png' ></image>
+   <text>图书登记</text>
+</navigator>
+</view>
+
+</view>
+</view>
+
+ <!-- <view class="statistics">
+ <navigator url='../newbaojun/newbaojun'  class="click" >
+   <image src='../../images/xinbaojun.jpg' ></image>
+   <text>新宝骏统计</text>
+</navigator>
+ </view> -->
+<view class="">
+<view class="statistics">
+<view class="logo">
+<navigator url='../assetManagement/assetManagement'  class="click" >
+   <image src='../../images/equipment.png' ></image>
+   <text>统计</text>
+</navigator>
+</view>
+</view>
+</view>
+
+</view>

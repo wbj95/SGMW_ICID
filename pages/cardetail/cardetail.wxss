@@ -33,15 +33,15 @@ width: 500rpx;
 }
 
 .cardata{
-  height: 140px;
+ display: flex;
 width: 100%;
-margin: 10px 15px 15px 15px;
+
 border-bottom: 1px solid #e6e5e2;
 background-color: #e6e5e2;
 }
 
 .car-info{
-height: 30px;
+height: 50px;
 line-height: 40px;
 display: flex;
 }
@@ -69,4 +69,177 @@ display: flex;
 }
 .title{
   color:  rgb(67, 96, 194);
+}
+.address{
+  display: flex;
+  margin-bottom: 10px;
+  width: 75%;
+}
+.AddressSpan{
+  width: 60%；
+}
+.car-info1{
+
+line-height: 40px;
+display: flex;
+margin-right: 15rpx;
+}
+.logo{
+  width: 50px;
+  height: 50px;
+}
+.image{
+ width: 100px;
+  height: 100px;
+
+}
+.borrow{
+  height: auto;
+width: auto;
+display: flex;
+flex-direction: row-reverse;
+margin-left: 100rpx;
+padding-top: 30rpx;
+}
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.th {
+  width: 50%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.th1 {
+  width: 50%;
+  justify-content: center;
+  background: rgb(221, 137, 10);
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.map_container{
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  height: 350rpx;
+}
+.map{
+  width: 100%;
+  height: 100%;
+}
+.map_text{
+
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  height: 80px;
+  background: #fff;
+  padding: 0 15px;
+}
+text{
+  margin: 5px 0;
+  display: block;
+  font-size:12px;
+}
+.h1{
+  margin: 15px 0;
+  font-size:15px;
+}
+.navi{
+  font-size: 10px;
+  width: 50rpx;
+  float: right;
+}
+.modal-mask {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-dialog {
+      width: 540rpx;
+      overflow: hidden;
+      z-index: 9999;
+      background: #f9f9f9;
+      border-radius: 5rpx;
+    }
+    .modal-title {
+      padding-top: 30rpx;
+      font-size: 32rpx;
+      color: #030303;
+      text-align: center;
+    }
+    .modal-content {
+      padding: 20rpx 32rpx;
+      font-size: 28rpx;  
+    }
+    .modal-footer {
+      display: flex;
+      flex-direction: row;
+      height: 86rpx;
+      border-top: 1px solid #dedede;
+      font-size: 34rpx;
+      line-height: 86rpx;
+    }
+    .btn-cancel {
+      width: 50%;
+      color: #abb4bd;
+      text-align: center;
+      border-right: 1px solid #dedede;
+    }
+    .btn-confirm {
+      width: 50%;
+      color: #6fb64b;
+      text-align: center;
+      font-weight: 500;
+    }
+    .oneWeek{
+      width: 100%;
+      height: 80rpx;
+      background-color: #07c160;
+margin-left: auto;
+margin-right: auto;
+margin-top: 10rpx
+    }
+.oneW{
+  width: 100%
+}
+.oneWeek text{
+  color: #fcfdfd;
+}
+.canvas {
+    width: 100%;
+    height: 600rpx;
+display: flex;
+justify-content: center;
 }

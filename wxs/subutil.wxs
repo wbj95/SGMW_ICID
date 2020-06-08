@@ -4,4 +4,11 @@ var sub = function (val) {
   }
   return val.substring(val.length-6,val.length);
 }
+var subfile=function(str){
+  if (str.length == 0 || str == undefined) {
+    return;
+  }
+  return str.substring(13, str.length)
+}
 module.exports.sub = sub;
+module.exports.subfile = subfile;

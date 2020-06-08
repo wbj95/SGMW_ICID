@@ -1,0 +1,129 @@
+<!--pages/bookRegister/bookRegister.wxml-->
+<!--跑马灯 Linyufan.com-->
+<!-- <view class="marquee_container" style="--marqueeWidth--:-12em">
+  <view class="marquee_text">借书/还书请到宏光楼306扫码</view>
+</view> -->
+<view>
+<image src="https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/images/readBook2.png" class="readBook"></image>
+</view>
+<!--跑马灯-->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">编号</view>
+    <view class="th">书名</view>
+  <view class="th">状态</view>
+  <view class="th">借书人</view>
+  <view class="th">操作</view>
+  </view>
+
+ <view wx:for="{{bookList}}"  wx:key="*this">
+  <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td" bindtap="bookdetail" data-describle="{{item.describle}}" data-imagesUrl="{{item.bookImagesUrl}}">{{item.bookNo}}</view>
+      <view class="td" bindtap="bookdetail" data-describle="{{item.describle}}" data-imagesUrl="{{item.bookImagesUrl}}">{{item.bookName}}</view>
+      <view class="td" bindtap="seedetail" data-borrowerName="{{item.borrowerName}}" data-borrowerIhpone="{{item.borrowerIphone}}" data-startTime="{{item.startTime}}" data-endTime="{{item.endTime}}" data-renew="{{item.renew}}">{{item.state}}</view>
+      <view class="td" bindtap="seedetail" data-borrowerName="{{item.borrowerName}}" data-borrowerIhpone="{{item.borrowerIphone}}" data-startTime="{{item.startTime}}" data-endTime="{{item.endTime}}" data-renew="{{item.renew}}">{{item.borrowerName}}</view>
+    <view wx:if="{{item.state=='借出'}}">
+       <button class="backbook" style="width: 150rpx;height:30px;"  bindtap="huanshu" data-bookNo="{{item.bookNo}}" data-bookName="{{item.bookName}}" data-borrowerName="{{item.borrowerName}}">
+   <text class="backbook">还书/续借</text>
+   </button>
+    </view>
+    <view wx:else>
+       <button class="comfirm" style="width: 150rpx;height:30px;"  bindtap="jieshu" data-bookid="{{item.bookNo}}" data-bookName="{{item.bookName}}">
+   <text class="borrowbook">扫码借书</text>
+   </button>
+    </view>
+    </view>
+   
+    <view class="tr" wx:else>
+      <view class="td" bindtap="bookdetail" data-describle="{{item.describle}}" data-imagesUrl="{{item.bookImagesUrl}}">{{item.bookNo}}</view>
+      <view class="td" bindtap="bookdetail" data-describle="{{item.describle}}" data-imagesUrl="{{item.bookImagesUrl}}">{{item.bookName}}</view>
+      <view class="td" bindtap="seedetail" data-borrowerName="{{item.borrowerName}}" data-borrowerIhpone="{{item.borrowerIphone}}" data-startTime="{{item.startTime}}" data-endTime="{{item.endTime}}" data-renew="{{item.renew}}">{{item.state}}</view>
+      <view class="td" bindtap="seedetail" data-borrowerName="{{item.borrowerName}}" data-borrowerIhpone="{{item.borrowerIphone}}" data-startTime="{{item.startTime}}" data-endTime="{{item.endTime}}" data-renew="{{item.renew}}">{{item.borrowerName}}</view>
+    <view wx:if="{{item.state=='借出'}}">
+       <button class="backbook" style="width: 150rpx;height:30px;"  bindtap="huanshu" data-bookNo="{{item.bookNo}}" data-bookName="{{item.bookName}}" data-borrowerName="{{item.borrowerName}}">
+   <text class="huanshu">还书/续借</text>
+   </button>
+    </view>
+    <view wx:else>
+       <button class="comfirm" style="width: 150rpx;height:30px;"  bindtap="jieshu" data-bookid="{{item.bookNo}}" data-bookName="{{item.bookName}}">
+   <text class="borrowbook">扫码借书</text>
+   </button>
+    </view>
+    </view>
+ </view>
+
+ 
+  <!-- </block> -->
+  </view>
+
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+    <view class='title'><text>信息：</text></view>
+    <view class='content'> 借用人：{{name}}</view>
+    <view class='content'> 手机号码：{{iphone}}</view>
+    <view class='content'> 借阅日期：{{starttime}}</view>
+    <view class='content'> 预计归还日期：{{endtime}}</view>
+    <view class='content'> 续借次数：{{renew}}</view>
+    <view class='msg' bindtap='hidePopup'>关闭弹窗</view>
+</view>
+
+<view class='toast-box' hidden='{{!caozuo}}'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>请输入个人信息</text>
+          <view bindtap="huanshucancel" class="huanshucancel">取消</view>
+            </view>
+            <view class='toast-main'>
+                <view class='toast-input'>
+                    <input placeholder='请输入姓名' bindinput='setName' value="{{userName}}" data-name='stuEidtName' name='tName'></input>
+                </view>
+               
+            </view>
+            <view class='toast-button'>
+                <view class='button1'>
+                    <button style="width: 263rpx;" catchtap='huanshu1'>扫码还书</button>
+                </view>
+                 <view class='button2'>
+                    <button style="width: 263rpx;"  catchtap='xujie'>续借</button>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='toast-box' hidden='{{!ifName}}'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>请输入个人信息</text>
+            </view>
+            <view class='toast-main'>
+                <view class='toast-input' >
+                    <input placeholder='请输入姓名' bindinput='setName' value="{{userName}}" name='tName'></input>
+                </view>
+            </view>
+             <view class='toast-main1'>
+                <view class='toast-input'>
+                    <input placeholder='请输入手机号' value="{{userIphone}}" bindinput='setIhpone' name='Ihpone'></input>
+                </view>
+            </view>
+            <view class='toast-button'>
+                <view class='button1'>
+                    <button style="width: 263rpx;" catchtap='cancel'>取消</button>
+                </view>
+                <view class='button2'>
+                    <button style="width: 263rpx;"  catchtap='confirm'>确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+
+<zy-modal title='图书详情' hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel" confirmText="确认">
+  <image class="image" src="{{imageUrl}}" mode='aspectFill'></image>
+  <!-- <view>{{describle}}</view> -->
+  <scroll-view class="help-info" scroll-y="true">
+  <text>
+  {{describle}}
+  </text>
+</scroll-view>
+</zy-modal>

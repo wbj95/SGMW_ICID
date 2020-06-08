@@ -1,74 +1,50 @@
 <!--pages/cardetail/cardetail.wxml-->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
-<view class="layout">
-  <!-- 车辆项目和VIN号 -->
-  <view class="cardetail">
-    <view class="car-text-vin">
-      <view>
-        <text class="title">
-   VIN 
-   </text>
-        <text class="content">
-   <!-- 通过自定义的module名称tools引用sub截取方法 -->
-{{tools.sub(vin)}}
-   </text>
-      </view>
-    </view>
-    <!-- 项目 -->
-    <view class="car-text-vin">
-      <text class="title">
-项目
-</text>
-      <text>
-{{projectName}}
-</text>
-    </view>
-    <!-- 配置 -->
-    <view class="car-text-vin">
-      <text class="title">
-配置
-</text>
-      <text>
-{{configuration}}
-</text>
-    </view>
-    <!-- 状态 -->
-    <view class="car-text-vin">
-      <text class="title">
-状态
-</text>
-      <text>
-{{state}}
-</text>
-    </view>
-    <!-- 位置 -->
-    <view class="car-text-vin">
-      <text class="title">
-位置
-</text>
-      <text>
-N/A
-</text>
-    </view>
-    <!-- 负责人 -->
-    <view class="car-text-vin">
-      <text class="title">
-负责人
-</text>
-      <text>
-{{borrower}}
-</text>
-    </view>
-  </view>
-</view>
 
-<view class="cardata">
-  <view class="car-info">
-    <span class="">当前位置：</span>
-    <view>
-      <!-- {{carData.longitude}} ，{{carData.latitude}}-->N/A
-    </view>
+<view class="table">
+  <view class="tr bg-w">
+      <view class="th">vin</view>
+    <view class="th">项目</view>
+  <view class="th">配置</view>
+  <view class="th">状态</view>
+  <view class="th">位置</view>
+  <view class="th">负责人</view>
+  
   </view>
+ <view class="tr bg-g">
+      <view class="td">{{tools.sub(vin)}}</view>
+      <view class="td">{{projectName}}</view>
+      <view class="td">{{configuration}}</view>
+      <view class="td">{{state}}</view>
+      <view class="td">{{city}}</view>
+      <view class="td">{{borrower}}</view>
+
+    </view>
+
+
+</view>
+<view class="tr bg-g">
+负责人电话：{{iphoneNum}}
+</view>
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}"></map>  
+  <!-- <button class="navi" type="primary" bindtap='navi'>导航</button> -->
+
+ <button class="navi" type="primary"  bindtap='oneWeek'><text>最近一周用车行程</text></button> 
+
+</view>
+<view class="map_text">
+    <text class="h1">{{textData.name}}</text>
+    <text>{{textData.desc}}</text>
+</view>
+<view class="cardata">
+  <!-- <view class="car-info1">
+    <span class="AddressSpan">当前位置：</span>
+    <view class="address">
+     {{address}}
+    </view>
+  </view> -->
+  <view>
   <view class="car-info">
     <span class="">剩余电量：</span>
     <view>{{batSoc}}%
@@ -77,7 +53,7 @@ N/A
   </view>
   <!-- 本周里程 -->
 <view class="car-info">
-    <span class="">本周里程：</span>
+    <span class="">本周行驶里程：</span>
     <view>
    {{dataMileage}}km
     </view>
@@ -86,13 +62,46 @@ N/A
 <view class="car-info">
     <span class="">本周启动次数：</span>
     <view>
-  
+  {{startOnNum}}次
     </view>
   </view>
+  </view>
+  <view class="borrow">
+     <navigator url='../borrowCar/borrowCar?vin={{vin}}' class="click">
+  
+   <image src='../../images/borrow_car.png' class="image"></image>
+   </navigator>
+  </view>
+
 </view>
-<view class="editcar">
-  <button class="edit" bindtap="editcar" data-projectName="{{projectName}}" data-vin="{{vin}}" data-borrower="{{borrower}}" data-configuration="{{configuration}}" data-="{{state}}">编辑车辆</button>
+<!-- <view  wx:if="{{showCon}}" class="modal-mask" bindtap="changeModalCancel">
+    <view class="modal-dialog">
+      <view class="modal-title">温馨提示</view>
+      <view class="modal-content">
+        获取定位失败，请前往设置打开定位权限
+      </view>
+      <view class="modal-footer">
+        <view class="btn-cancel" catchtap="changeModalCancel">取消</view>
+        <button open-type="openSetting" class="btn-confirm button-on-view" style="padding:0rpx;" catchtap="changeModalCancel">设置</button>
+      </view>
+    </view>
+  </view> -->
+<!-- <view class="editcar"> -->
+  <!-- <button class="edit" bindtap="editcar" data-projectName="{{projectName}}" data-vin="{{vin}}" data-borrower="{{borrower}}" data-configuration="{{configuration}}" data-="{{state}}">编辑车辆</button>
 </view>
 <view>
 <button class="delete" bindtap="deletecar" data-carid="{{id}}">删除车辆</button>
-</view>
+</view> -->
+
+<!-- <view class="borrow">
+  <navigator url='../borrowCar/borrowCar?vin={{vin}}' class="click">
+  
+   <image src='../../images/borrow_car.png' class="image"></image>
+   </navigator>
+</view> -->
+<!-- <view class="oneW">
+ <button class="oneWeek"  bindtap='oneWeek'><text>最近一周用车行程</text></button> 
+</view> -->
+<view class="startPre">
+ <canvas class="canvas" canvas-id="lineGraph"></canvas>
+ </view>

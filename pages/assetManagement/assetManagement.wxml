@@ -1,0 +1,30 @@
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">资产类型</view>
+    <view class="th">资产型号</view>
+    <view class="th">资产编号</view>
+  <view class="th">所属科室</view>
+  <view class="th">使用者</view>
+  </view>
+   <view wx:for="{{assetList}}"  wx:key="*this">
+ <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.assetClasses}}</view>
+      <view class="td">{{item.assetTypes}}</view>
+      <view class="td">{{item.assetNumbles}}</view>
+      <view class="td">{{item.department}}</view>
+      <view class="td">{{item.userName}}</view>
+    </view>
+   
+    <view class="tr" wx:else>
+       <view class="td">{{item.assetClasses}}</view>
+      <view class="td">{{item.assetTypes}}</view>
+      <view class="td">{{item.assetNumbles}}</view>
+      <view class="td">{{item.department}}</view>
+      <view class="td">{{item.userName}}</view>
+    </view>
+
+  <!-- </block> -->
+
+</view>
+</view>

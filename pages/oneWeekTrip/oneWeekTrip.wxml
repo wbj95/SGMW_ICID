@@ -1,0 +1,32 @@
+<!--pages/myOrder/myOrder.wxml-->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">最近7天用车行程</view>
+  </view>
+  </view>
+<view class='con' wx:if="{{datastyle==1}}">
+ <!-- 订单列表 -->
+ <block wx:for-items="{{Trip}}" wx:key="key" >
+ <view class='card b-shadow' bindtap='toggleBtn' id="{{item.id}}">
+  <view class='nearCard-fr'>
+  <view class="one">
+<text class="startTime">开始时间：</text>
+   <text class='c-green'>{{item.beginTime}}</text>
+  </view>
+   <image wx:if='{{uhide==0}}' class="image" src="{{imageurl1}}"></image>
+    <image wx:elif="{{uhide==item.id}}" class="image" src="{{imageurl2}}"></image>
+    <image wx:else class="image" src="{{imageurl1}}"></image>
+  </view>
+  <view class='down clearfix {{uhide==item.id?"":"hidden"}}'>
+  <view class='ml30'>开始地点：{{item.startAdress}}</view>
+  <view class='ml30'>结束地点：{{item.endAdress}}</view>
+  <view class='ml30'>开始时间：{{item.beginTime}}</view>
+   <view class='ml30'>结束时间：{{item.endTime}}</view>
+    <view class='ml30'>行驶里程：{{item.xslc}}KM</view>
+  </view>
+ </view>
+ </block>
+</view>
+<view  class='con' wx:if="{{datastyle==0}}">
+<text class="nodata">无数据</text>
+</view>

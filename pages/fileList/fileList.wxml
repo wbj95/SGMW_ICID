@@ -1,0 +1,31 @@
+<!--pages/myOrder/myOrder.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">知识文件夹</view>
+  </view>
+  </view>
+<view class='con'>
+ <!-- 订单列表 -->
+ <block wx:for-items="{{fileList}}" wx:key="key" >
+ <view class='card b-shadow' id="{{item.id}}" bindtap='toggleBtn'>
+  <view class='nearCard-fr'>
+  <image class="image_file" src="../../images/file_logo.png"></image>
+  <view class="one">
+<!-- <text class="startTime">开始时间：</text> -->
+   <text class='c-green'>{{tools.subfile(item.directory)}}</text>
+  </view>
+   <!-- <image wx:if='{{uhide==0}}' class="image" src="{{imageurl1}}"></image>
+    <image wx:elif="{{uhide==item.id}}" class="image" src="{{imageurl2}}"></image>
+    <image wx:else class="image" src="{{imageurl1}}"></image> -->
+  </view>
+  <view wx:for="{{item.dataFileName}}" class='down clearfix {{uhide==item.id?"":"hidden"}}' wx:for-item="it" wx:key="key">
+  <view class="onefile">
+   <image class="image_one" src="../../images/file_one.png"></image>
+  <view class='ml30' bindtap="XmLonlinePreview" data-id='{{it.filename}}' data-dir="{{item.directory}}">{{index+1}}.{{it.filename}}</view>
+  </view>
+ 
+  </view>
+ </view>
+ </block>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/borrowCar/borrowCar.wxml-->
+<view class="" wx:if="{{ version == '0'}}" wx:key>
+ <button class="comfirm" type="primary" bindtap="queren">确认借用此车辆吗？</button>
+</view>
+<view class="addinfo" wx:else>
+<form bindsubmit="formSubmit">
+ <view class="car-info">
+    <span class="">姓名：</span>
+    <input class="input" name="Name" placeholder="请输借车人的姓名"></input>
+  </view>
+  <view class="car-info">
+    <span class="">联系方式：</span>
+    <input class="input" name="phoneNum" placeholder="请输入借车人的手机号" ></input>
+  </view>
+  <view class="car-info">
+    <span class="">车辆VIN号:</span>
+    <input class="input" name="vin" placeholder="请输入车辆VIN号" value="{{vin}}"></input>
+  </view>
+  <view class="comfirm-button">
+    <button class="comfirm" type="primary" form-type="submit">确认</button>
+  </view>
+</form>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "修改车辆负责人",
+    "navigationBarTextStyle": "black"
+  }
+}

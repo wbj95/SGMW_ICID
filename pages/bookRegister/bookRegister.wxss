@@ -1,0 +1,270 @@
+/* pages/bookRegister/bookRegister.wxss */
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+   /* border-bottom-style:solid; */
+}
+.th {
+  width: 50%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.bg-w{
+  background: snow;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+   
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.comfirm{
+   width: 70px;
+  background-color: rgb(115, 189, 30);
+  color:  white;
+  font-size: 10px;
+  padding: 8px 2px;
+}
+.borrowbook{
+width: 50px;
+}
+.backbook{
+     width: 70px;
+  background-color: rgb(245, 11, 11);
+  color:  white;
+  font-size: 10px;
+  padding: 8px 2px
+}
+
+/* 遮罩 */
+.shade {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+}
+.shade_box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 11;
+    min-width: 200rpx;
+    min-height: 200rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    color: #333;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0;
+    word-wrap: break-word;
+ 
+    animation-name:popup;
+    animation-duration:0.2s;
+    animation-timing-function:linear;
+    animation-delay:0;
+    animation-iteration-count:1;
+    animation-direction:normal;
+}
+ 
+@keyframes popup
+{
+    from{opacity:0;transform:scale(0.3,0.3);}
+    to 	{opacity:1;transform:scale(1,1);}
+}
+ 
+ 
+/* 当前弹窗样式 */
+.popup{
+    width: 600rpx;
+    height: 480rpx;
+    background-color: #ffffff;
+}
+.popup .title{
+    padding: 0 20rpx;
+    border-bottom: #e5e5e5 solid 1px;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 32rpx;
+    background-color: #f6f6f6;
+}
+.popup .content{
+    font-size: 40rpx;
+    color: #0099ff;
+}
+.popup .copy{
+    color: #999999;
+    text-align: center;
+}
+.popup .msg{
+    color: #ff0000;
+    text-align: center;
+    margin-top: 20rpx;
+    font-size: 18px;
+margin-bottom: 20rpx;
+
+}
+
+.toast-box {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+ 
+.toastbg {
+    opacity: 0.2;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+}
+ 
+.showToast {
+    position: absolute;
+    opacity: 1;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 40%;
+}
+ 
+.toast-title {
+    padding-left: 5%;
+    background-color: #2196f3;
+    color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-top-right-radius: 16rpx;
+    border-top-left-radius: 16rpx;
+    display: flex;
+}
+ 
+.toast-main {
+    padding-top: 2vh;
+  display: flex;
+    background-color: white;
+    text-align: center;
+}
+ 
+.toast-input {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #ddd;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+ 
+.toast-button {
+    display: flex;
+}
+ 
+.button1 {
+    width: 50%;
+  
+}
+ 
+.button2 {
+    width: 50%;
+}
+ 
+.button1 button {
+    width: 100%;
+    background-color: white;
+    color: red;
+    border-radius: 0px;
+    border-bottom-left-radius: 16rpx;
+}
+ 
+.button2 button{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+    border-bottom-right-radius: 16rpx;
+}
+ 
+.picker {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.toast-main1{
+   padding-top: 1vh;
+    padding-bottom: 2vh;
+    background-color: white;
+    text-align: center;
+}
+.huanshu{
+  width: 82px;
+}
+.huanshucancel{
+  margin-left: 180rpx;
+}
+/*首页跑马灯效果*/
+@keyframes around {
+ from {
+  margin-left: 100%;
+ }
+ to {
+  /* var接受传入的变量 */
+  margin-left: var(--marqueeWidth--);
+ }
+ }
+  
+.marquee_container{
+ background-color: #fe4655;
+ height: 50rpx;
+ line-height: 44rpx;
+ position: relative;
+ width: 100%;
+ margin-top:0rpx;
+}
+.marquee_container:hover{
+ /* 不起作用 */
+ animation-play-state: paused;
+}
+.marquee_text{
+ color:#fff;
+ font-size: 28rpx;
+ display: inline-block;
+ white-space: nowrap;
+ animation-name: around;
+ animation-duration: 10s; /*过渡时间*/
+ animation-iteration-count: infinite;
+ animation-timing-function:linear;
+}
+/*首页跑马灯效果*/
+
+.image {
+  width: 380rpx;
+  justify-content: center;  
+  margin-left: 90rpx;
+}
+.help-info{
+  height: 300rpx;
+}
+.readBook{
+  width: 100%;
+  height: 350rpx;
+}

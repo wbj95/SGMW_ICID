@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "图书登记",
+  "usingComponents": {
+    "zy-modal": "../../utils/zy-modal/zy-modal"
+  }
+}

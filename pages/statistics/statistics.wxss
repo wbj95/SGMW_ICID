@@ -1,0 +1,68 @@
+/* pages/statistics/statistics.wxss */
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+}
+.td1 {
+    width:90%;
+    justify-content: center;
+    text-align: center;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.th {
+  width: 90%;
+  justify-content: center;
+  background: #fff;
+  color: rgb(7, 7, 7);
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.th1 {
+  width: 20%;
+  justify-content: center;
+  background: #fff;
+  color: rgb(7, 7, 7);
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  font-size: 12px;
+}
+.image{
+  width: 30px;
+  height: 20px;
+}
+.canvas {
+    width: 90px;
+    height: 90px;
+    display: flex;
+  justify-content: center;
+}
+.startPre{
+display: flex;
+border-bottom-style:solid;
+  border-bottom-color:#030303;
+}
+.startPre text{
+   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}

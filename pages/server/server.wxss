@@ -1,0 +1,51 @@
+/* pages/server/server.wxss */
+.all{
+  width: 100%;
+  height: 1200rpx;
+
+}
+.logo{
+ display: flex;
+ flex-direction: column;
+}
+.logo text{
+  display:flex;
+  align-items:center;
+justify-content:center;
+}
+.all image{
+ width: 60px;
+  height: 60px;
+}
+.borrow{
+   width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statistics{
+  width: 100%;
+height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.click{
+   width: 60px;
+  height: 100px;
+}
+.click text{
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+}
+.bookclick{
+  width: 70px;
+  height: 100px;
+}
+.line{
+  display: flex;
+}

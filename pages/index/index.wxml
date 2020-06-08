@@ -1,73 +1,74 @@
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
 <!-- 增加车辆 -->
-<view class="top-navigation">
+<!-- <view class="top-navigation">
   <navigator url="../addcar/addcar" class="">
     <image src="/images/add.png" class="add-image"></image>
   </navigator>
-</view>
+</view> -->
 <!-- 车辆列表 -->
+<!-- 搜索框 -->
 
 
-<!-- 通过循环嵌套展示 -->
-<navigator url="../cardetail/cardetail?vin={{item.vin}}&projectName={{item.projectName}}&borrower={{item.borrower}}&id={{item.ID}}&configuration={{item.configuration}}&state={{item.state}}" wx:for="{{carInfoList}}" wx:key="*this" class="carlist one-car">
-  <!-- <image class="car-images" src="/images/E300carblue.png"></image> -->
-  <view class="car-content">
-    <view class="car-text-vin">
-      <view>
-        <text class="title">
-   VIN 
-   </text>
-        <text class="content">
-   <!-- 通过自定义的module名称tools引用sub截取方法 -->
-{{tools.sub(item.vin)}}
-   </text>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="25"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="Vin号" maxlength='10' value="{{inputVal}}" focus="{{inputShowed}}"   bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+     
       </view>
+      <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
     </view>
-    <!-- 项目 -->
-     <view class="car-text-vin">
-      <text class="title">
-项目
-</text>
-      <text>
-{{item.projectName}}
-</text>
-    </view>
-    <!-- 配置 -->
-    <view class="car-text-vin">
-      <text class="title">
-配置
-</text>
-      <text>
-{{item.configuration}}
-</text>
-    </view>
-<!-- 状态 -->
- <view class="car-text-vin">
-      <text class="title">
-状态
-</text>
-      <text>
-{{item.state}}
-</text>
-    </view>
-    <!-- 位置 -->
-     <view class="car-text-vin">
-      <text class="title">
-位置
-</text>
-      <text>
-N/A
-</text>
-    </view>
-    <!-- 负责人 -->
-     <view class="car-text-vin">
-      <text class="title">
-负责人
-</text>
-      <text>
-{{item.borrower}}
-</text>
-    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <!-- 搜索列表 -->
+      <view class="weui-cell__bd" wx:for="{{list}}" wx:key="key">
+        <!-- 列表名称 -->
+        <view class='list_name'  data-index='{{index}}' data-id='{{item.deviceId}}' 
+        data-name='{{item.carNum}}' bindtap='btn_name'>
+          <!-- 昵称 -->
+          <label class='lab_name'>{{item.carNum}}</label>
+        </view>
+      </view>
+    </view>   
   </view>
-</navigator>
+</view>
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">vin</view>
+    <view class="th">项目</view>
+  <view class="th">配置</view>
+  <view class="th">状态</view>
+  <view class="th">位置</view>
+  <view class="th">负责人</view>
+  </view>
+  <!-- <block wx:for="{{carInfoList}}" wx:key="*this"> -->
+  <navigator url="../cardetail/cardetail?vin={{item.vin}}" wx:for="{{carInfoList}}" wx:key="*this">
+ 
+ <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{tools.sub(item.vin)}}</view>
+      <view class="td">{{item.projectName}}</view>
+      <view class="td">{{item.configuration}}</view>
+      <view class="td">{{item.state}}</view>
+      <view class="td">{{item.city}}</view>
+      <view class="td">{{item.borrower}}</view>
+    </view>
+   
+    <view class="tr" wx:else>
+       <view class="td">{{tools.sub(item.vin)}}</view>
+      <view class="td">{{item.projectName}}</view>
+      <view class="td">{{item.configuration}}</view>
+      <view class="td">{{item.state}}</view>
+      <view class="td">{{item.city}}</view>
+      <view class="td">{{item.borrower}}</view>
+    </view>
+     </navigator>
+  <!-- </block> -->
+
+</view>
