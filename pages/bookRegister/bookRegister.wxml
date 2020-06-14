@@ -4,7 +4,7 @@
   <view class="marquee_text">借书/还书请到宏光楼306扫码</view>
 </view> -->
 <view>
-<image src="https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/images/readBook2.png" class="readBook"></image>
+<image src="https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/images/readBook3.png" class="readBook"></image>
 </view>
 <!--跑马灯-->
 <view class="table">
