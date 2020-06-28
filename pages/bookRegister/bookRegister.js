@@ -1,4 +1,5 @@
 // pages/bookRegister/bookRegister.js
+const app = getApp()
 Page({
 
   /**
@@ -32,7 +33,7 @@ Page({
     wx.showLoading({ title: '加载中', icon: 'loading', duration: 20000 });
     var that=this;
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/BookRegist/getAllBook',
+      url: app.globalData.serverUrl+'/BookRegist/getAllBook',
       data: {
       },
       method: 'GET',
@@ -193,7 +194,7 @@ huanshu:function(e){
     console.log("用户名：" + this.data.userName + " 电话：" + this.data.userIphone+"书籍ID"+this.data.bookId)
     //向后台传送
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/BookRegist/getOneBook?borrowerName=' + this.data.userName + "&borrowerIphone=" + this.data.userIphone + "&bookID=%23" + this.data.bookId,
+      url: app.globalData.serverUrl+'/BookRegist/getOneBook?borrowerName=' + this.data.userName + "&borrowerIphone=" + this.data.userIphone + "&bookID=%23" + this.data.bookId,
       data: {
       },
       method: 'GET',
@@ -273,7 +274,7 @@ huanshu:function(e){
     var that = this
     console.log("用户名：" + this.data.userName + "BOOKID" + this.data.bookId)
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/BookRegist/renewBook?borrowerName=' + this.data.userName + "&bookID=%23" + this.data.bookId,
+      url: app.globalData.serverUrl+'/BookRegist/renewBook?borrowerName=' + this.data.userName + "&bookID=%23" + this.data.bookId,
       method: 'GET',
       header: {
         'Content-type': 'application/json'

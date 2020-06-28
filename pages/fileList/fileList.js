@@ -1,4 +1,5 @@
 // pages/fileList/fileList.js
+const app = getApp()
 Page({
 
   /**
@@ -41,7 +42,7 @@ Page({
     });
     //
     wx.request({
-      url: 'https://www.sgmwzhilian.club//carmanage/CarInfo/listFile',
+      url: app.globalData.serverUrl+'/CarInfo/listFile',
       data: {},
       method: 'GET',
       header: {
@@ -63,7 +64,7 @@ Page({
     console.log(r.currentTarget.dataset.dir + r.currentTarget.dataset.id)
     //将文件名传到后台获取连接，然后在线预览
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/CarInfo/findFilesURL?fileName=' + r.currentTarget.dataset.dir + r.currentTarget.dataset.id,
+      url: app.globalData.serverUrl+'/CarInfo/findFilesURL?fileName=' + r.currentTarget.dataset.dir + r.currentTarget.dataset.id,
       method: 'GET',
       data: {},
       header: {

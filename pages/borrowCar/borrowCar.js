@@ -1,4 +1,5 @@
 // pages/borrowCar/borrowCar.js
+const app = getApp()
 Page({
 
   /**
@@ -96,7 +97,7 @@ var that =this
     let { Name, phoneNum, vin} = e.detail.value;
     console.log(Name + phoneNum + vin);
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/CarInfo/exchangeNameAndIphone?vin=' + vin + "&Name=" + Name + "&phoneNum=" + phoneNum, 
+      url: app.globalData.serverUrl+'/CarInfo/exchangeNameAndIphone?vin=' + vin + "&Name=" + Name + "&phoneNum=" + phoneNum, 
       method: 'GET',
       data: {},
       header: { 'Accept': 'application/json' },

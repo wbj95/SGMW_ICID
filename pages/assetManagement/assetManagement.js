@@ -1,4 +1,5 @@
 // pages/assetManagement/assetManagement.js
+const app = getApp()
 Page({
 
   /**
@@ -16,7 +17,7 @@ Page({
     wx.showLoading({ title: '加载中', icon: 'loading', duration: 20000 });
     var that = this;
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/assetManage/getAllAsset',
+      url: app.globalData.serverUrl+'/assetManage/getAllAsset',
       data: {
       },
       method: 'GET',

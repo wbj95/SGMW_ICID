@@ -4,6 +4,7 @@ var config = require('../../libs/config.js');
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 var util = require('../../utils/util.js');
 const CHARTS = require('../../utils/wxcharts.js'); // 引入
+const app = getApp()
 Page({
 
   /**
@@ -89,7 +90,7 @@ Page({
 
     //获取单台vin车辆数据
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/CarInfo/getCarInfoByVin?vin=' + options.vin,
+      url: app.globalData.serverUrl+'/CarInfo/getCarInfoByVin?vin=' + options.vin,
       method: 'GET',
       data: {},
       header: {

@@ -7,6 +7,7 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -20,12 +21,14 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.2",
 	"appid": "wx72fcc20176f57619",
-	"projectname": "%E7%A7%91%E5%AE%A4%E8%BD%A6%E8%BE%86%E7%AE%A1%E7%90%86",
+	"projectname": "sgmw_icid",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

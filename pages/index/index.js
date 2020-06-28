@@ -61,7 +61,7 @@ Page({
     });
    //模糊查询
     wx.request({
-      url: "https://www.sgmwzhilian.club/carmanage/CarInfo/fuzzyQuery?vin=" + e.detail.value,
+      url: app.globalData.serverUrl+"/CarInfo/fuzzyQuery?vin=" + e.detail.value,
       data: {
       },
       method: 'GET',
@@ -83,7 +83,7 @@ Page({
         //成功获取
         wx.request({
            //URL
-          url: 'https://www.sgmwzhilian.club/carmanage/CarInfo/getAllCarInfo',
+          url: app.globalData.serverUrl+'/CarInfo/getAllCarInfo',
           method:'GET',
           data:{},
           header: { 'Accept': 'application/json'},
@@ -126,7 +126,7 @@ Page({
   updateBlogs: function () {
     var that = this
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/CarInfo/getAllCarInfo',
+      url: app.globalData.serverUrl+'/CarInfo/getAllCarInfo',
       data: {
       },
       header: {
