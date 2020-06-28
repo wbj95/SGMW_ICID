@@ -1,6 +1,7 @@
 // pages/oneWeekTrip/oneWeekTrip.js
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 var config = require('../../libs/config.js');
+const app = getApp()
 Page({
 
   /**

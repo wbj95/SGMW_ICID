@@ -1,4 +1,5 @@
 // pages/bookRegister/borroweBook/borroweBook.js
+const app = getApp()
 Page({
 
   /**
@@ -44,7 +45,7 @@ borroweriphone:null,
     console.log()
     //向后台传送
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/BookRegist/getOneBook?borrowerName=' + borrowerName + "&borrowerIphone=" + borroweriphone + "&bookID=%23" + this.data.bookId,
+      url: app.globalData.serverUrl+'/BookRegist/getOneBook?borrowerName=' + borrowerName + "&borrowerIphone=" + borroweriphone + "&bookID=%23" + this.data.bookId,
       data: {
       },
       method: 'GET',
