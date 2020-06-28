@@ -41,7 +41,7 @@
 <view class="logo">
 <navigator url='../assetManagement/assetManagement'  class="click" >
    <image src='../../images/equipment.png' ></image>
-   <text>统计</text>
+   <text>资产统计</text>
 </navigator>
 </view>
 </view>

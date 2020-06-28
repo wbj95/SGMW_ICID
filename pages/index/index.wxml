@@ -8,7 +8,15 @@
 </view> -->
 <!-- 车辆列表 -->
 <!-- 搜索框 -->
-
+<view class='carousel'> 
+  <swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="true" interval='2000' circular='true'>
+    <block wx:for="{{carouselList}}" wx:key="key">
+      <swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
+        <image class="carouselImg" src='{{item.img}}' mode='aspectFill' ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+ </view>
 
 <view class="page">
   <view class="page__bd">

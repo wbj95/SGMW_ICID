@@ -307,3 +307,9 @@ color: transparent;
 .weui-search-bar__box{
   display: flex
 }
+.carouselImg{
+  width: 100%;
+height: 150px;
+display: inline-block;
+overflow: hidden;
+}

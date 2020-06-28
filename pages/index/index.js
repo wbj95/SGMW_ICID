@@ -25,6 +25,25 @@ Page({
     catList: [],
 
     btnWidth: 300, //删除按钮的宽度单
+    carouselList: [{
+        "id": "101",
+        "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity1.jpg",
+        "title": "",
+        "url": "https://www.baidu.com/"
+      },
+      {
+        "id": "102",
+        "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity2.jpg",
+        "title": "百度翻译",
+        "url": "https://fanyi.baidu.com/"
+      },
+      {
+        "id": "103",
+        "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity3.jpg",
+        "title": "百度地图",
+        "url": "https://map.baidu.com/"
+      }
+      ]//轮播图集合
   },
   //事件处理函数
   bindViewTap: function() {
