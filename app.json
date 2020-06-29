@@ -38,12 +38,6 @@
         "text": "车辆状态"
       },
       {
-        "pagePath": "pages/server/server",
-        "iconPath": "images/server.png",
-        "selectedIconPath": "images/select_server.png",
-        "text": "服务"
-      },
-      {
         "pagePath": "pages/customer_server/customer_server",
         "iconPath": "images/customerServer.png",
         "selectedIconPath": "images/customerServer_select.png",
