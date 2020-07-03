@@ -33,7 +33,7 @@ height: 200px;
 
 }
 .click{
-   width: 60px;
+   width: 70px;
   height: 100px;
 }
 .click text{

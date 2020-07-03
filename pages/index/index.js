@@ -23,25 +23,28 @@ Page({
     inputVal: "",
     //搜索渲染推荐数据
     catList: [],
-
+    tab: [true, true, true],//隐藏下拉选项框
     btnWidth: 300, //删除按钮的宽度单
+    prjectNameList: [],//项目数组
+    selectProject:"全部",
+    uhide: 0,//确认箭头方向
     carouselList: [{
         "id": "101",
         "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity1.jpg",
-        "title": "",
+        "title": "年会",
         "url": "https://www.baidu.com/"
       },
       {
         "id": "102",
         "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity2.jpg",
-        "title": "百度翻译",
-        "url": "https://fanyi.baidu.com/"
+        "title": "E300",
+        "url": ""
       },
       {
         "id": "103",
         "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity3.jpg",
-        "title": "百度地图",
-        "url": "https://map.baidu.com/"
+        "title": "柳州",
+        "url": ""
       }
       ]//轮播图集合
   },
@@ -111,9 +114,23 @@ Page({
        
             wx.hideLoading()//加载中隐藏
             console.log(res.data.data);
-            console.log(res.data);
-            that.setData({ carInfoList: res.data.data
-            });
+            console.log(res.data.data.length)
+            var templistProjectName=[]
+            var conunt=-1
+            //遍历数组,取项目名
+            for(var i=0;i<res.data.data.length;i++){
+              
+              //判断数组是否在
+              if (that.isInArry(res.data.data[i].projectName, templistProjectName)){//存在了
+      
+              }else{//不存在
+                templistProjectName[conunt++] = res.data.data[i].projectName
+              }
+            }
+            that.setData({
+              prjectNameList: templistProjectName,
+              carInfoList: res.data.data
+            })
             wx.setStorage({//存储到本地
               key: "carInfoList2",
               data: res.data.data
@@ -153,11 +170,79 @@ Page({
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res.data.data);
-        console.log(res.data);
+ 
         that.setData({ carInfoList: res.data.data });
       }
     })
+  },
+  //判断字符串是否在数组中
+  isInArry:function(string,arry){
+
+    for(var i=0;i<arry.length;i++){
+      if(arry[i]==string){
+        return true
+      }
+    }
+    return false
+  },
+  //点击项目
+  filterTab:function(){
+    var uhide1=0
+    var data=[true,true,true]
+    var data2 = [false, true, true]
+    if(this.data.tab[0]==true){
+      if (uhide1==this.data.uhide){
+        this.setData({
+          uhide: 1
+        })
+      }else{
+        this.setData({
+          uhide: 0
+        })
+      }
+    this.setData({
+      tab:data2
+    })
+    }else{
+      if (uhide1 == this.data.uhide) {
+        this.setData({
+          uhide: 1
+        })
+      } else {
+        this.setData({
+          uhide: 0
+        })
+      }
+      this.setData({
+        tab: data
+      })
+    }
+  },
+  //选择车型
+  filter:function(e){
+    var that=this
+    var projectName = e.currentTarget.dataset.txt
+    console.log(projectName)
+    //根据车型从数组
+    var allcarList = wx.getStorageSync('carInfoList2')
+    var templistcar = []
+    var conunt = 0
+    if (projectName=="全部"){
+      that.setData({
+        carInfoList: allcarList,
+      })
+    }else{
+      for (var i = 0; i < allcarList.length; i++) {
+        //取出该车型所有数据
+        if (projectName == allcarList[i].projectName) {
+          templistcar[conunt++] = allcarList[i]
+        }
+      }
+      console.log(templistcar)
+      that.setData({
+        carInfoList: templistcar,
+        selectProject:projectName
+      })
+    }
   }
-  //
 })
