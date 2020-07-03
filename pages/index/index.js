@@ -32,7 +32,7 @@ Page({
         "id": "101",
         "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity1.jpg",
         "title": "年会",
-        "url": "https://www.baidu.com/"
+        "url": ""
       },
       {
         "id": "102",
@@ -230,6 +230,7 @@ Page({
     if (projectName=="全部"){
       that.setData({
         carInfoList: allcarList,
+        selectProject:"全部"
       })
     }else{
       for (var i = 0; i < allcarList.length; i++) {
