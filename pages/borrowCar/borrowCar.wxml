@@ -6,11 +6,11 @@
 <form bindsubmit="formSubmit">
  <view class="car-info">
     <span class="">姓名：</span>
-    <input class="input" name="Name" placeholder="请输借车人的姓名"></input>
+    <input class="input" name="Name" placeholder="请输姓名"></input>
   </view>
   <view class="car-info">
     <span class="">联系方式：</span>
-    <input class="input" name="phoneNum" placeholder="请输入借车人的手机号" ></input>
+    <input class="input" name="phoneNum" placeholder="请输入电话" ></input>
   </view>
   <view class="car-info">
     <span class="">车辆VIN号:</span>

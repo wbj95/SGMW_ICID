@@ -597,3 +597,23 @@ color: #A8A8A8
   width: 15%;
 
 }
+.carstyle{
+  display: flex
+}
+.normal-style {
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+    display:inline-block;
+    text-align:center;
+    background:#fff;
+    border:1px solid #f1f1f1;
+}
+.click-style{
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+    display:inline-block;
+    text-align:center;
+    background:#1F4495;
+    border:1px solid #f1f1f1;
+    color:#fff;
+}

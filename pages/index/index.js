@@ -13,8 +13,8 @@ Page({
     projectName:{},//项目名称
     carVIN:{},//车辆VIN号
     carInfo:{},//车辆信息，包括项目，VIN号
-    carInfoList:null,
-    carInfoList2:null,//缓存
+    carInfoList:null,//新能源
+    carInfoList3:null,//传统车
     // 搜索框状态
     inputShowed: false,
     //显示结果view的状态
@@ -26,27 +26,10 @@ Page({
     tab: [true, true, true],//隐藏下拉选项框
     btnWidth: 300, //删除按钮的宽度单
     prjectNameList: [],//项目数组
+    prjectNameList2:[],//传统车项目名
     selectProject:"全部",
     uhide: 0,//确认箭头方向
-    carouselList: [{
-        "id": "101",
-        "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity1.jpg",
-        "title": "年会",
-        "url": ""
-      },
-      {
-        "id": "102",
-        "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity2.jpg",
-        "title": "E300",
-        "url": ""
-      },
-      {
-        "id": "103",
-        "img": "https://zhilianjiaohu.oss-cn-beijing.aliyuncs.com/%E8%BD%AE%E6%92%AD%E5%9B%BE/activity3.jpg",
-        "title": "柳州",
-        "url": ""
-      }
-      ]//轮播图集合
+    flag:1,//标识为1，显示新能源，标识为0显示
   },
   //事件处理函数
   bindViewTap: function() {
@@ -104,14 +87,13 @@ Page({
     wx.showLoading({ title: '加载中', icon: 'loading', duration: 20000 });
         //成功获取
         wx.request({
-           //URL
-          url: app.globalData.serverUrl+'/CarInfo/getAllCarInfo',
+           //URL，新能源
+          url: app.globalData.serverUrl +'/CarInfo/getAllElectricCarInfo',
           method:'GET',
           data:{},
           header: { 'Accept': 'application/json'},
           //成功获取
           success:function(res){
-       
             wx.hideLoading()//加载中隐藏
             console.log(res.data.data);
             console.log(res.data.data.length)
@@ -119,7 +101,6 @@ Page({
             var conunt=-1
             //遍历数组,取项目名
             for(var i=0;i<res.data.data.length;i++){
-              
               //判断数组是否在
               if (that.isInArry(res.data.data[i].projectName, templistProjectName)){//存在了
       
@@ -135,9 +116,42 @@ Page({
               key: "carInfoList2",
               data: res.data.data
             })
+            wx.setStorage({//存储到本地,x新能源项目名
+              key: "prjectNameList",
+              data: templistProjectName
+            })
           }
         })
-    
+    //获取传统车
+    wx.request({
+      //URL，传统车
+      url: app.globalData.serverUrl + '/CarInfo/getAllFuelCarInfo',
+      method: 'GET',
+      data: {},
+      header: { 'Accept': 'application/json' },
+      //成功获取
+      success: function (res) {
+        wx.hideLoading()//加载中隐藏
+        var templistProjectName = []
+        var conunt = -1
+        //遍历数组,取项目名
+        for (var i = 0; i < res.data.data.length; i++) {
+          //判断数组是否在
+          if (that.isInArry(res.data.data[i].projectName, templistProjectName)) {//存在了
+          } else {//不存在
+            templistProjectName[conunt++] = res.data.data[i].projectName
+          }
+        }
+        wx.setStorage({//存储到本地
+          key: "prjectNameList2",
+          data: templistProjectName
+        })
+        wx.setStorage({//存储到本地
+          key: "carInfoList3",
+          data: res.data.data
+        })
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -222,9 +236,17 @@ Page({
   filter:function(e){
     var that=this
     var projectName = e.currentTarget.dataset.txt
-    console.log(projectName)
+    console.log(this.data.flag)
     //根据车型从数组
-    var allcarList = wx.getStorageSync('carInfoList2')
+    //判断现在是传统车还是新能源列表
+    var allcarList
+    if(this.data.flag==1)//新能源
+    {
+      allcarList = wx.getStorageSync('carInfoList2')
+    }else{
+      //传统车
+      allcarList = wx.getStorageSync('carInfoList3')
+    }
     var templistcar = []
     var conunt = 0
     if (projectName=="全部"){
@@ -245,5 +267,21 @@ Page({
         selectProject:projectName
       })
     }
+  },
+  //新能源
+  xinnnegyuan:function(){
+  this.setData({
+    carInfoList: wx.getStorageSync('carInfoList2'),
+    flag: 1,
+    prjectNameList: wx.getStorageSync('prjectNameList')
+  })
+  },
+  //传统车
+  chuantongche:function(){
+    this.setData({
+      carInfoList: wx.getStorageSync('carInfoList3'),
+      prjectNameList: wx.getStorageSync('prjectNameList2'),
+      flag:0
+    })
   }
 })

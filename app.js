@@ -36,6 +36,7 @@ App({
   globalData: {
     userInfo: null,
     //serverUrl:"http://192.168.43.91:8082/carmanage",
-    serverUrl:"https://www.sgmwzhilian.club//carmanage"
+    serverUrl:"https://www.sgmwzhilian.club/carmanage"
+    // serverUrl: "http://192.168.43.89:8080/carmanage"
   }
 })

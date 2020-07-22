@@ -1,4 +1,5 @@
 // pages/bookRegister/returnBook/returnBook.js
+const app = getApp()
 Page({
 
   /**
@@ -45,7 +46,7 @@ Page({
      var that = this
     //
     wx.request({
-      url: 'https://www.sgmwzhilian.club/carmanage/BookRegist/returnbook?borrowerName=' + borrowerName + "&bookID=%23" + this.data.bookId,
+      url: app.globalData.serverUrl +'/BookRegist/returnbook?borrowerName=' + borrowerName + "&bookID=%23" + this.data.bookId,
       method: 'GET',
       header: {
         'Content-type': 'application/json'

@@ -8,7 +8,7 @@
 </view> -->
 <!-- 车辆列表 -->
 <!-- 搜索框 -->
-<view class='carousel'> 
+<!-- <view class='carousel'> 
   <swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="true" interval='2000' circular='true'>
     <block wx:for="{{carouselList}}" wx:key="key">
       <swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
@@ -16,7 +16,7 @@
       </swiper-item>
     </block>
   </swiper>
- </view>
+ </view> -->
  <view class="all">
  <view class="line">
 <view class="statistics">
@@ -76,7 +76,13 @@
     </view>   
   </view>
 </view>
+<!-- 筛选新能源和传统车 -->
+<view class="carstyle">
+<button class="{{flag==1?'click-style':'normal-style'}}" bindtap="xinnnegyuan">新能源</button>
+<button class="{{flag==0?'click-style':'normal-style'}}" bindtap="chuantongche">传统车</button>
+</view>
 
+<!-- 车辆列表展示 -->
 <view class="table">
   <view class="tr bg-w">
     <view class="th">vin</view>
@@ -93,20 +99,9 @@
 <text class="{{selectProject=='全部'?'active':''}}" data-id="0" data-index="0" data-txt="全部" bindtap="filter">全部</text>
     <text class="{{selectProject==item?'active':''}}"  wx:for="{{prjectNameList}}" data-id="{{item}}" data-txt="{{item}}"  bindtap="filter">{{item}}</text>
 </view>
-<view class="tabLayer" hidden="{{tab[1]}}">
-    <text class="{{jiage_id==0?'active':''}}" data-id="0" data-index="1" data-txt="价格" bindtap="filter">不限</text>
-    <text class="{{jiage_id==1?'active':''}}" data-id="1" data-index="1" data-txt="58-88" bindtap="filter">58-88</text>
-    <text class="{{jiage_id==2?'active':''}}" data-id="2" data-index="1" data-txt="88-108" bindtap="filter">88-108</text>
-    <text class="{{jiage_id==3?'active':''}}" data-id="3" data-index="1" data-txt="108-188" bindtap="filter">108-188</text>
-</view>
-<view class="tabLayer" hidden="{{tab[2]}}">
-    <text class="{{xiaoliang_id==0?'active':''}}" data-id="0" data-index="2" data-txt="销量" bindtap="filter">不限</text>
-    <text class="{{xiaoliang_id==1?'active':''}}" data-id="1" data-index="2" data-txt="从高到低" bindtap="filter">从高到低</text>
-    <text class="{{xiaoliang_id==2?'active':''}}" data-id="2" data-index="2" data-txt="从低到高" bindtap="filter">从低到高</text>
-</view>
-
   <!-- <block wx:for="{{carInfoList}}" wx:key="*this"> -->
-  <navigator url="../cardetail/cardetail?vin={{item.vin}}" wx:for="{{carInfoList}}" wx:key="*this">
+  <view wx:if="{{flag==1}}">
+   <navigator url="../cardetail/cardetail?vin={{item.vin}}" wx:for="{{carInfoList}}" wx:key="*this">
  
  <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
       <view class="td">{{tools.sub(item.vin)}}</view>
@@ -126,6 +121,29 @@
       <view class="td">{{item.borrower}}</view>
     </view>
      </navigator>
+  </view>
+  <view wx:if="{{flag==0}}">
+   <view wx:for="{{carInfoList}}" wx:key="*this">
+ 
+ <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{tools.sub(item.vin)}}</view>
+      <view class="td">{{item.projectName}}</view>
+      <view class="td">{{item.configuration}}</view>
+      <view class="td">{{item.state}}</view>
+      <view class="td">{{item.city}}</view>
+      <view class="td">{{item.borrower}}</view>
+    </view>
+   
+    <view class="tr" wx:else>
+       <view class="td">{{tools.sub(item.vin)}}</view>
+      <view class="td">{{item.projectName}}</view>
+      <view class="td">{{item.configuration}}</view>
+      <view class="td">{{item.state}}</view>
+      <view class="td">{{item.city}}</view>
+      <view class="td">{{item.borrower}}</view>
+    </view>
+     </view>
+  </view>
   <!-- </block> -->
   <!-- 测试提交 -->
 
